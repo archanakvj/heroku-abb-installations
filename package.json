@@ -1,7 +1,7 @@
 {
-  "name": "phone-change",
+  "name": "Update-Installation-Status",
   "version": "0.0.0",
-  "description": "Heroku Connect Sample App - Phone Change",
+  "description": "Heroku Connect Sample App - Installation Change",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
