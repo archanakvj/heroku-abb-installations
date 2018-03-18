@@ -1,7 +1,7 @@
 {
   "name": "Update-Installation-Status",
   "description": "Heroku Connect Sample App - Installation Details",
-  "repository": "https://github.com/archanakvj/heroku-connect-installation-change",
+  "repository": "https://github.com/archanakvj/herokuconnectinstallation",
   "success_url": "/setup.html",
   "env": {
     "PGSSLMODE": {
