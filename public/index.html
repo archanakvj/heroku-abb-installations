@@ -25,6 +25,13 @@
 
                 var instname = $("#installationname").val();
                 var status = $("#status").val();
+              //  alert('stat::'+status);
+                
+                var e = document.getElementById("status");
+              //  var selstat = e.options[e.selectedIndex].value;
+              //  status=selstat;
+              //  alert('stat::'+status);
+
                 var sno = $("#serialnumber").val();
                 //var phone = $("#phone").val();
 
@@ -79,15 +86,26 @@
                 <div class="panel-body">
                     <div class="form-group">
                         <label for="installationname">Installation Name</label>
-                        <input type="text" class="form-control" id="installationname" placeholder="For verification" required>
+                        <input type="text" class="form-control" id="installationname" value="YuMi" placeholder="For verification" required>
                     </div>
                     <div class="form-group">
-                        <label for="status">Status</label>
-                        <input type="text" class="form-control" id="status" placeholder="For verification" required>
+                        <label for="status">Status</label><br/>
+
+                        <select id="status"> 
+                            <option value="Purchased">Purchased</option>
+                            <option value="Shipped" >Shipped</option>
+                            <option value="Installed">Installed</option>
+                            <option value="Error">Error</option>
+                            <option value="Repaired">Repaired</option>
+                            <option value="Registered">Registered</option>
+                            <option value="Not Registered">Not Registered</option>
+                        </select>
+
+                        <!--input type="text" class="form-control" id="status" placeholder="For verification" required-->
                     </div>
                     <div class="form-group">
                         <label for="serialnumber">Serial Number</label>
-                        <input type="text" class="form-control" id="serialnumber" placeholder="For verification" required>
+                        <input type="text" class="form-control" id="serialnumber" value="123456790" placeholder="For verification" required>
                     </div>
                     <!--div class="form-group">
                         <label for="phone">Phone</label>
