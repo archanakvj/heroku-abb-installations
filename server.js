@@ -14,12 +14,12 @@ app.post('/update', function(req, res) {
         // watch for any connect issues
         if (err) console.log(err);
         conn.query(
-            'UPDATE salesforce.Installation__c SET Status__c = $1 WHERE  Serial_Number__c = $3 ',
-            [req.body.status.trim(), req.body.instname.trim(), req.body.sno.trim()],
+            'UPDATE salesforce.Installation__c SET Status__c = $1 WHERE  Serial_Number__c = $2 ',
+            [req.body.status.trim(), req.body.sno.trim()],
             function(err, result) {
                 if (err != null || result.rowCount == 0) {
-                  conn.query('INSERT INTO salesforce.Installation__c (Status__c, Name, Serial_Number__c) VALUES ($1, $2, $3)',
-                  [req.body.status.trim(), req.body.instname.trim(), req.body.sno.trim()],
+                  conn.query('INSERT INTO salesforce.Installation__c (Status__c, Serial_Number__c) VALUES ($1, $2)',
+                  [req.body.status.trim(), req.body.sno.trim()],
                   function(err, result) {
                     done();
                     if (err) {

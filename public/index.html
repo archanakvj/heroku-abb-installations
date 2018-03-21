@@ -35,7 +35,8 @@
                 var sno = $("#serialnumber").val();
                 //var phone = $("#phone").val();
 
-                if (instname.length == 0 || status.length == 0 || sno.length == 0 ) {
+                //if (instname.length == 0 || status.length == 0 || sno.length == 0 ) {
+              if ( status.length == 0 || sno.length == 0 ) {
                     errorMessage.text("All of the fields are required.");
                     error.show();
                 }
@@ -44,7 +45,7 @@
                         url: event.target.action,
                         method: event.target.method,
                         data: JSON.stringify({
-                            instname: instname,
+                            //instname: instname,
                             status: status,
                             sno: sno
                         }),
