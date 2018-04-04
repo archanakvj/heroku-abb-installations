@@ -1,5 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var crypto = require('crypto');
 var pg = require('pg');
 var decode = require('salesforce-signed-request');
 var app = express();
