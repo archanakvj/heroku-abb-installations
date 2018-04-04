@@ -40,7 +40,9 @@ app.post('/update', function(req, res) {
         );
     });
 });
-
+app.post('/signedrequest', function(req, res) {
+    var signedRequest = decode(req.body.signed_request, consumerSecret);
+});
 app.listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));
 });
