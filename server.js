@@ -43,7 +43,7 @@ app.post('/update', function(req, res) {
 });
 app.post('/signedrequest', function(req, res) {
    
-    //var canvasRequest = verifyAndDecode(req.body.signed_request, consumerSecret);
+    var canvasRequest = verifyAndDecode(req.body.signed_request, consumerSecret);
 });
 function verifyAndDecode(input, secret){
     if (!input || input.indexOf('.') <= 0) {
