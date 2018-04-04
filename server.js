@@ -41,8 +41,42 @@ app.post('/update', function(req, res) {
     });
 });
 app.post('/signedrequest', function(req, res) {
-    var signedRequest = decode(req.body.signed_request, consumerSecret);
+   
+    var canvasRequest = verifyAndDecode(req.body.signed_request, consumerSecret);
 });
+function verifyAndDecode(input, secret){
+    if (!input || input.indexOf('.') <= 0) {
+	    throw 'Input doesn\'t look like a signed request';
+	}
+	var split = input.split('.', 2);
+    var encodedSig = split[0];
+    var encodedEnvelope = split[1];
+
+    // Deserialize the json body
+    var json_envelope = new Buffer(encodedEnvelope,'base64').toString('utf8');
+    var algorithm;
+    var canvasRequest;
+    try {
+        canvasRequest = JSON.parse(json_envelope);
+        algorithm = canvasRequest.algorithm ? "HMACSHA256" : canvasRequest.algorithm;
+    } catch (e) {
+        throw 'Error deserializing JSON: '+ e;
+    }
+
+    // check algorithm - not relevant to error
+    if (!algorithm || algorithm.toUpperCase() !== 'HMACSHA256') {
+        throw 'Unknown algorithm '+algorithm+'. Expected HMACSHA256';
+    }
+
+	expectedSig = crypto.createHmac('sha256', secret).update(split[1]).digest('base64');
+    if (encodedSig !== expectedSig) {
+       throw 'Bad signed JSON Signature!';
+    }
+
+
+	return canvasRequest;
+
+}
 app.listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));
 });
