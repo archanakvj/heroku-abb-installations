@@ -44,12 +44,12 @@ app.post('/update', function(req, res) {
 app.post('/signedrequest', function(req, res) {
     console.log('--Inside signed request--');
     try {
-        console.log(req);
+        //console.log(req);
         console.log(req.body);
-        console.log(res);
+        //console.log(res);
         console.log(res.body);
-        console.log(JSON.stringify(res.body));
-        console.log(JSON.stringify(req.body));
+        //console.log(JSON.stringify(res.body));
+        //console.log(JSON.stringify(req.body));
         var canvasRequest = verifyAndDecode(req.body.signed_request, consumerSecret);
       } catch (ex) {
         console.log('Exception!');
