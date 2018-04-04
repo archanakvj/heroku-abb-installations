@@ -44,14 +44,14 @@ app.post('/update', function(req, res) {
 app.post('/signedrequest', function(req, res) {
     console.log('--Inside signed request--');
     try {
-        console.log(req);
+        //console.log(req);
         //console.log(req.body);
-        console.log(req.headers);
+        //console.log(req.headers);
         //console.log(res);
         //console.log(res.signed_request);
         //console.log(JSON.stringify(res.body));
         //console.log(JSON.stringify(req.body));
-        //var canvasRequest = verifyAndDecode(req.body.signed_request, consumerSecret);
+        var canvasRequest = verifyAndDecode(req.body.signed_request, consumerSecret);
       } catch (ex) {
         console.log('Exception!');
         console.log(ex);
@@ -59,6 +59,7 @@ app.post('/signedrequest', function(req, res) {
     
 });
 function verifyAndDecode(input, secret){
+    console.log(input);
     if (!input || input.indexOf('.') <= 0) {
 	    throw 'Input doesn\'t look like a signed request';
 	}
