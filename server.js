@@ -42,7 +42,7 @@ app.post('/update', function(req, res) {
     });
 });
 app.post('/signedrequest', function(req, res) {
-   
+   console.log(JSON.stringify(req.body));
     var canvasRequest = verifyAndDecode(req.body.signed_request, consumerSecret);
 });
 function verifyAndDecode(input, secret){
