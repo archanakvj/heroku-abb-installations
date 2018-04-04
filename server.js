@@ -51,7 +51,8 @@ app.post('/signedrequest', function(req, res) {
         //console.log(res.signed_request);
         //console.log(JSON.stringify(res.body));
         //console.log(JSON.stringify(req.body));
-        var canvasRequest = verifyAndDecode(req.body.signed_request, consumerSecret);
+        //var canvasRequest = verifyAndDecode(req.body.signed_request, consumerSecret);
+        res.redirect('https://testabbinstallations.herokuapp.com');
       } catch (ex) {
         console.log('Exception!');
         console.log(ex);
