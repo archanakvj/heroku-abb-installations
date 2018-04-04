@@ -45,8 +45,8 @@ app.post('/signedrequest', function(req, res) {
     console.log('--Inside signed request--');
     try {
         console.log(req);
-        console.log(req.body);
-        console.log(req.body.signed_request);
+        //console.log(req.body);
+        console.log(req.headers);
         //console.log(res);
         //console.log(res.signed_request);
         //console.log(JSON.stringify(res.body));
