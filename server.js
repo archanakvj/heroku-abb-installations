@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 var pg = require('pg');
 var decode = require('signed-request');
 var app = express();
-
+var consumerSecret = process.env.CONSUMER_SECRET;
 app.set('port', process.env.PORT || 5000);
 
 app.use(express.static('public'));
@@ -43,6 +43,7 @@ app.post('/update', function(req, res) {
 app.post('/signedrequest', function(req, res) {
     // You could save this information in the user session if needed
     var signedRequest = decode(req.body.signed_request, consumerSecret);
+
 });
 app.listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));
