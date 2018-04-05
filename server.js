@@ -41,7 +41,7 @@ app.post('/update', function(req, res) {
         );
     });
 });
-app.post('/signedrequest', function(req, res) {
+app.post('/canvas', function(req, res) {
     console.log('--Inside signed request--');
     try {
         //console.log(req.params['signed_request']);
@@ -53,12 +53,12 @@ app.post('/signedrequest', function(req, res) {
         //console.log(JSON.stringify(res.body));
         //console.log(JSON.stringify(req.body));
         //var canvasRequest = verifyAndDecode(req.body.signed_request, consumerSecret);
-        
+        res.redirect('https://testabbinstallations.herokuapp.com');
       } catch (ex) {
         console.log('Exception!');
         console.log(ex);
       }
-      res.redirect('https://testabbinstallations.herokuapp.com');
+    
 });
 function verifyAndDecode(input, secret){
     console.log(input);
