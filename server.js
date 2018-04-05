@@ -44,8 +44,8 @@ app.post('/update', function(req, res) {
 app.post('/signedrequest', function(req, res) {
     console.log('--Inside signed request--');
     try {
-        console.log(req.params['signed_request']);
-        console.log(req.form);
+        console.log(req.params);
+        //console.log(req.form);
         //console.log(req.body);
         //console.log(req.headers);
         //console.log(res);
@@ -57,8 +57,9 @@ app.post('/signedrequest', function(req, res) {
       } catch (ex) {
         console.log('Exception!');
         console.log(ex);
+        res.redirect('https://testabbinstallations.herokuapp.com');
       }
-    
+      res.redirect('https://testabbinstallations.herokuapp.com');
 });
 function verifyAndDecode(input, secret){
     console.log(input);
