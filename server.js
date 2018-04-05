@@ -53,12 +53,12 @@ app.post('/canvas', function(req, res) {
         //console.log(JSON.stringify(res.body));
         //console.log(JSON.stringify(req.body));
         //var canvasRequest = verifyAndDecode(req.body.signed_request, consumerSecret);
-        res.redirect('https://testabbinstallations.herokuapp.com');
+        
       } catch (ex) {
         console.log('Exception!');
         console.log(ex);
       }
-    
+      return res.redirect('https://testabbinstallations.herokuapp.com');
 });
 function verifyAndDecode(input, secret){
     console.log(input);
