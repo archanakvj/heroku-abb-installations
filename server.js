@@ -58,8 +58,8 @@ app.post('/canvas', function(req, res) {
         console.log('Exception!');
         console.log(ex);
       }
-     // return res.redirect('https://testabbinstallations.herokuapp.com');
-     res.sendfile('index.html');
+      return res.redirect('https://testabbinstallations.herokuapp.com');
+     //res.sendfile('/index.html');
 });
 function verifyAndDecode(input, secret){
     console.log(input);
